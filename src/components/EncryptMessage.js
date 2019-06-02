@@ -1,6 +1,8 @@
 import React from 'react'
 import { encryptMessage } from '../lib/encryptMessage'
 import { buf2hex } from '../lib/utils'
+import RaisedButton from 'material-ui/RaisedButton'
+import Typography from '@material-ui/core/Typography'
 
 class EncryptMessage extends React.Component {
   constructor (props) {
@@ -32,16 +34,17 @@ class EncryptMessage extends React.Component {
     return (
       <>
         <div>
-          <button onClick={this.handleChange}>
-            Encrypt Message
-          </button>
+          <RaisedButton
+            disabled={this.props.importedPublicKey === ''}
+            onClick={this.handleChange}
+            label='Encrypt Message' />
         </div>
         <div>
-          <p>Message to Encrypt</p>
+          <Typography variant='body1' gutterBottom>Message to Encrypt</Typography>
           <textarea rows='6' cols='100' value={this.props.messageToEncrypt} onChange={this.handleMessageChange} />
         </div>
         <div>
-          <p>Encrypted Message (ArrayBuffer to Hex for demo)</p>
+          <Typography variant='body1' gutterBottom>Encrypted Message (ArrayBuffer to Hex for demo)</Typography>
           <textarea rows='6' cols='100' readOnly value={buf2hex(this.props.encryptedMessage)} />
         </div>
       </>
