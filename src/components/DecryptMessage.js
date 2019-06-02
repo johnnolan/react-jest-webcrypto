@@ -1,5 +1,8 @@
 import React from 'react'
 import { decryptMessage } from '../lib/decryptMessage'
+import RaisedButton from 'material-ui/RaisedButton'
+import Typography from '@material-ui/core/Typography'
+import TextField from '@material-ui/core/TextField'
 
 class DecryptMessage extends React.Component {
   constructor (props) {
@@ -24,12 +27,20 @@ class DecryptMessage extends React.Component {
     return (
       <>
         <div>
-          <button onClick={this.handleChange}>
-            Decrypt Message
-          </button>
+          <RaisedButton
+            disabled={this.props.importedPrivateKey === '' || this.props.encryptedMessage === ''}
+            onClick={this.handleChange}
+            label='Decrypt Message' />
         </div>
         <div>
-          <p>Decrypted Message</p>
+          <Typography variant='body1' gutterBottom>Decrypted Message</Typography>
+          <TextField
+            placeholder='MultiLine with rows: 2 and rowsMax: 4'
+            multiline
+            rows={6}
+            rowsMax={4}
+            readOnly value={this.props.decryptedMessage}
+          />
           <textarea rows='6' cols='100' readOnly value={this.props.decryptedMessage} />
         </div>
       </>

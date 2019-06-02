@@ -1,5 +1,7 @@
 import React from 'react'
 import { importPrivateFromJwk, importPublicFromJwk } from '../lib/importKeys'
+import RaisedButton from 'material-ui/RaisedButton'
+import Typography from '@material-ui/core/Typography'
 
 class ImportKeys extends React.Component {
   constructor (props) {
@@ -31,15 +33,17 @@ class ImportKeys extends React.Component {
     return (
       <>
         <div>
-          <button onClick={this.handleChange}>
-            Import Public and Private Key (Check console for CryptoKey)
-          </button>
+          <RaisedButton
+            onClick={this.handleChange}
+            label={'Import Public and Private Key (Check console for CryptoKey)'}
+            disabled={(this.props.jwtPublicKey === '')}
+          />
         </div>
         <div>
-          <p>Imported Public Key: {(this.props.importedPublicKey !== '').toString()}</p>
+          <Typography variant='body1' gutterBottom>Imported Public Key: {(this.props.importedPublicKey !== '').toString()}</Typography>
         </div>
         <div>
-          <p>Imported Private Key: {(this.props.importedPrivateKey !== '').toString()}</p>
+          <Typography variant='body1' gutterBottom>Imported Private Key: {(this.props.importedPrivateKey !== '').toString()}</Typography>
         </div>
       </>
     )

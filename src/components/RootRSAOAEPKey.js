@@ -1,5 +1,7 @@
 import React from 'react'
 import { generateKey } from '../lib/rootRSAOAEPKey'
+import RaisedButton from 'material-ui/RaisedButton'
+import Typography from '@material-ui/core/Typography'
 
 class RootRSAOAEPKey extends React.Component {
   constructor (props) {
@@ -23,12 +25,15 @@ class RootRSAOAEPKey extends React.Component {
     return (
       <>
         <div>
-          <button onClick={this.handleChange}>
-            Generate Root RSA-OAEPKey
-          </button>
+          <RaisedButton
+            onClick={this.handleChange}
+            label='Generate Root RSA-OAEPKey'
+          />
         </div>
         <div>
-          <p>Open your console to see the generated root CryptoKey</p>
+          <Typography variant='body1' gutterBottom>
+            Open your console to see the generated root CryptoKey
+          </Typography>
         </div>
       </>
     )
