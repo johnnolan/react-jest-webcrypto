@@ -1,10 +1,4 @@
 import { generateKey } from './rootRSAOAEPKey'
-import encoding from 'text-encoding'
-window.TextEncoder = encoding.TextEncoder
-window.TextDecoder = encoding.TextDecoder
-window.atob = require('atob')
-var WebCrypto = require('node-webcrypto-ossl')
-window.crypto = new WebCrypto()
 
 describe('Given I generate a new RSA-OAEP key', () => {
   let generatedKey

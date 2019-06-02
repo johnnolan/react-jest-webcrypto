@@ -3,12 +3,6 @@ import { exportJwtPublicKey, exportJwtPrivateKey } from './exportKeys'
 import { importPublicFromJwk, importPrivateFromJwk } from './importKeys'
 import { encryptMessage } from './encryptMessage'
 import { decryptMessage } from './decryptMessage'
-import encoding from 'text-encoding'
-window.TextEncoder = encoding.TextEncoder
-window.TextDecoder = encoding.TextDecoder
-window.atob = require('atob')
-var WebCrypto = require('node-webcrypto-ossl')
-window.crypto = new WebCrypto()
 
 describe('Given I try to Encrypt a new message', () => {
   let generatedKey
