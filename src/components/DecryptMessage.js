@@ -35,13 +35,12 @@ class DecryptMessage extends React.Component {
         <div>
           <Typography variant='body1' gutterBottom>Decrypted Message</Typography>
           <TextField
-            placeholder='MultiLine with rows: 2 and rowsMax: 4'
+            placeholder=''
             multiline
             rows={6}
             rowsMax={4}
             readOnly value={this.props.decryptedMessage}
           />
-          <textarea rows='6' cols='100' readOnly value={this.props.decryptedMessage} />
         </div>
       </>
     )
