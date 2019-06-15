@@ -1,13 +1,15 @@
 {
-  "main.css": "/react-jest-webcrypto/static/css/main.8bd2d41a.chunk.css",
-  "main.js": "/react-jest-webcrypto/static/js/main.317c617e.chunk.js",
-  "main.js.map": "/react-jest-webcrypto/static/js/main.317c617e.chunk.js.map",
-  "runtime~main.js": "/react-jest-webcrypto/static/js/runtime~main.b72d3073.js",
-  "runtime~main.js.map": "/react-jest-webcrypto/static/js/runtime~main.b72d3073.js.map",
-  "static/js/2.b1498b0d.chunk.js": "/react-jest-webcrypto/static/js/2.b1498b0d.chunk.js",
-  "static/js/2.b1498b0d.chunk.js.map": "/react-jest-webcrypto/static/js/2.b1498b0d.chunk.js.map",
-  "index.html": "/react-jest-webcrypto/index.html",
-  "precache-manifest.430ffd2330a3199f1eea7325e767d8e9.js": "/react-jest-webcrypto/precache-manifest.430ffd2330a3199f1eea7325e767d8e9.js",
-  "service-worker.js": "/react-jest-webcrypto/service-worker.js",
-  "static/css/main.8bd2d41a.chunk.css.map": "/react-jest-webcrypto/static/css/main.8bd2d41a.chunk.css.map"
+  "files": {
+    "main.css": "/static/css/main.f62e0562.chunk.css",
+    "main.js": "/static/js/main.8b9c1d03.chunk.js",
+    "main.js.map": "/static/js/main.8b9c1d03.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/js/2.2c8e99cf.chunk.js": "/static/js/2.2c8e99cf.chunk.js",
+    "static/js/2.2c8e99cf.chunk.js.map": "/static/js/2.2c8e99cf.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.29e5d129b8fc2a655481d6194d9c9c54.js": "/precache-manifest.29e5d129b8fc2a655481d6194d9c9c54.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.f62e0562.chunk.css.map": "/static/css/main.f62e0562.chunk.css.map"
+  }
 }
