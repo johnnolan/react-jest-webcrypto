@@ -1,6 +1,7 @@
 import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import Divider from '@material-ui/core/Divider'
+import Highlight from 'react-highlight'
 import {
   RootRSAOAEPKey,
   ExportKeys,
@@ -8,7 +9,7 @@ import {
   EncryptMessage,
   DecryptMessage
 } from './index'
-import { Link } from '@material-ui/core';
+import { Link } from '@material-ui/core'
 
 class WebCryptoEncryption extends React.Component {
   constructor (props) {
@@ -84,8 +85,11 @@ class WebCryptoEncryption extends React.Component {
             by step how we achieve this.
           </Typography>
           <Typography component='p' gutterBottom>
-            Each step will include a link to the react component, encryption library component needed and a explanation of what
-            each is doing.
+            Each step will include a link to the react component, encryption library component needed and a code example
+          </Typography>
+          <Typography component='p' gutterBottom>
+            All the following methods are wrapped in tests. I would highly recommend reading through the test cases
+            as they can be a great insight on how the code fits together.
           </Typography>
         </section>
         <section>
@@ -104,7 +108,7 @@ class WebCryptoEncryption extends React.Component {
           <Divider variant='middle' />
         </section>
         <section>
-          <Typography variant='h2' component='h2' gutterBottom>Step 1: Root Certificate (PBK)</Typography>
+          <Typography variant='h2' component='h2' gutterBottom>Step 1: Root Certificate (RSA-OAEP)</Typography>
           <Typography component='p' gutterBottom>
             <strong>User Story:</strong> A user should be able to generate a new, unique encryption key
           </Typography>
@@ -117,8 +121,23 @@ class WebCryptoEncryption extends React.Component {
               <strong>Code: </strong>Lib
             </Link>
           </Typography>
-          <Typography component='p' gutterBottom>
-          </Typography>
+          <Highlight language='javascript'>
+            {`
+  export async function generateKey () {
+    return window.crypto.subtle.generateKey({
+      name: 'RSA-OAEP',
+      modulusLength: 2048,
+      publicExponent: new Uint8Array([0x01, 0x00, 0x01]),
+      hash: {
+        name: 'SHA-256'
+      }
+    },
+    true,
+    ['encrypt', 'decrypt']
+    )
+  }
+            `}
+          </Highlight>
           <RootRSAOAEPKey
             onGenerateKey={this.handleRootRSAOAEPKeyChange}
           />
@@ -140,8 +159,24 @@ class WebCryptoEncryption extends React.Component {
               <strong>Code: </strong>Lib
             </Link>
           </Typography>
-          <Typography component='p' gutterBottom>
-          </Typography>
+          <Highlight language='javascript'>
+            {`
+  async function exportKey (keyData) {
+    return window.crypto.subtle.exportKey('jwk', keyData)
+      .then((key) => {
+        return (key)
+      })
+  }
+  
+  export async function exportjwkPublicKey (key) {
+    return exportKey(key.publicKey)
+  }
+  
+  export async function exportjwkPrivateKey (key) {
+    return exportKey(key.privateKey)
+  }  
+            `}
+          </Highlight>
 
           <ExportKeys
             onExportKeys={this.handleExportKeys}
@@ -166,9 +201,35 @@ class WebCryptoEncryption extends React.Component {
             <Link href='https://github.com/johnnolan/react-jest-webcrypto/blob/master/src/lib/importKeys.js'>
               <strong>Code: </strong>Lib
             </Link>
-          </Typography>
-          <Typography component='p' gutterBottom>
-          </Typography>
+          </Typography><Highlight language='javascript'>
+            {`
+  export async function importPublicFromJwk (keyData) {
+    return window.crypto.subtle.importKey(
+      'jwk',
+      keyData,
+      {
+        name: 'RSA-OAEP',
+        hash: 'SHA-256'
+      },
+      true,
+      ['encrypt']
+    )
+  }
+  
+  export async function importPrivateFromJwk (keyData) {
+    return window.crypto.subtle.importKey(
+      'jwk',
+      keyData,
+      {
+        name: 'RSA-OAEP',
+        hash: 'SHA-256'
+      },
+      true,
+      ['decrypt']
+    )
+  }  
+            `}
+          </Highlight>
 
           <ImportKeys
             onImportKeys={this.handleImportKeys}
@@ -194,8 +255,19 @@ class WebCryptoEncryption extends React.Component {
               <strong>Code: </strong>Lib
             </Link>
           </Typography>
-          <Typography component='p' gutterBottom>
-          </Typography>
+          <Highlight language='javascript'>
+            {`
+  export async function encryptMessage (publicKey, encodedMessage) {
+    return window.crypto.subtle.encrypt(
+      {
+        name: 'RSA-OAEP'
+      },
+      publicKey,
+      encodedMessage
+    )
+  }  
+            `}
+          </Highlight>
 
           <EncryptMessage
             onEncryptMessage={this.handleEncryptMessage}
@@ -221,8 +293,19 @@ class WebCryptoEncryption extends React.Component {
               <strong>Code: </strong>Lib
             </Link>
           </Typography>
-          <Typography component='p' gutterBottom>
-          </Typography>
+          <Highlight language='javascript'>
+            {`
+  export async function decryptMessage (publicKey, ciphertext) {
+    return window.crypto.subtle.decrypt(
+      {
+        name: 'RSA-OAEP'
+      },
+      publicKey,
+      ciphertext
+    )
+  }  
+            `}
+          </Highlight>
 
           <DecryptMessage
             onDecryptMessage={this.handleDecryptMessage}

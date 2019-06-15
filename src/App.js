@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
+import './a11y-dark.css'
 import { WebCryptoEncryption } from './components/index'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
