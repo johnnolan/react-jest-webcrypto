@@ -11,12 +11,12 @@ class ImportKeys extends React.Component {
 
   handleChange (event) {
     event.preventDefault()
-    const jwtPublicKey = this.props.jwtPublicKey
-    const jwtPrivateKey = this.props.jwtPrivateKey
+    const jwkPublicKey = this.props.jwkPublicKey
+    const jwkPrivateKey = this.props.jwkPrivateKey
 
-    importPublicFromJwk(jwtPublicKey)
+    importPublicFromJwk(jwkPublicKey)
       .then((importedPublicKey) => {
-        importPrivateFromJwk(jwtPrivateKey)
+        importPrivateFromJwk(jwkPrivateKey)
           .then((importedPrivateKey) => {
             console.log('### Imported Keys ###')
             console.log('importedPublicKey', importedPublicKey)
@@ -36,7 +36,7 @@ class ImportKeys extends React.Component {
           <RaisedButton
             onClick={this.handleChange}
             label={'Import Public and Private Key (Check console for CryptoKey)'}
-            disabled={(this.props.jwtPublicKey === '')}
+            disabled={(this.props.jwkPublicKey === '')}
           />
         </div>
         <div>

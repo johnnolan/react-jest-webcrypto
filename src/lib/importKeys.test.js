@@ -1,22 +1,22 @@
 import { generateKey } from './rootRSAOAEPKey'
-import { exportJwtPublicKey, exportJwtPrivateKey } from './exportKeys'
+import { exportjwkPublicKey, exportjwkPrivateKey } from './exportKeys'
 import { importPrivateFromJwk, importPublicFromJwk } from './importKeys'
 
 describe('Given I try to import the exported jwk', () => {
   let generatedKey
-  let privateJwtToken
-  let publicJwtToken
+  let privateJwkToken
+  let publicJwkToken
 
   beforeAll(() => {
     return generateKey()
       .then((key) => {
         generatedKey = key
-        return exportJwtPrivateKey(generatedKey)
+        return exportjwkPrivateKey(generatedKey)
           .then((key) => {
-            privateJwtToken = key
-            return exportJwtPublicKey(generatedKey)
+            privateJwkToken = key
+            return exportjwkPublicKey(generatedKey)
               .then((key) => {
-                publicJwtToken = key
+                publicJwkToken = key
               })
           })
       })
@@ -25,7 +25,7 @@ describe('Given I try to import the exported jwk', () => {
   describe('And it is the public key', () => {
     let publicKey
     beforeAll(() => {
-      return importPublicFromJwk(publicJwtToken)
+      return importPublicFromJwk(publicJwkToken)
         .then((key) => {
           publicKey = key
         })
@@ -39,7 +39,7 @@ describe('Given I try to import the exported jwk', () => {
   describe('And it is the private key', () => {
     let privateKey
     beforeAll(() => {
-      return importPrivateFromJwk(privateJwtToken)
+      return importPrivateFromJwk(privateJwkToken)
         .then((key) => {
           privateKey = key
         })

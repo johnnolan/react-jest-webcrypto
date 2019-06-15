@@ -1,21 +1,21 @@
 import { generateKey } from './rootRSAOAEPKey'
-import { exportJwtPublicKey, exportJwtPrivateKey } from './exportKeys'
+import { exportjwkPublicKey, exportjwkPrivateKey } from './exportKeys'
 import { importPrivateFromJwk, importPublicFromJwk } from './importKeys'
 import { encryptMessage } from './encryptMessage'
 
 describe('Given I try to Encrypt a new message', () => {
   let generatedKey
-  let publicJwtToken
+  let publicJwkToken
   let publicKey
 
   beforeAll(() => {
     return generateKey()
       .then((key) => {
         generatedKey = key
-        return exportJwtPublicKey(generatedKey)
+        return exportjwkPublicKey(generatedKey)
           .then((key) => {
-            publicJwtToken = key
-            return importPublicFromJwk(publicJwtToken)
+            publicJwkToken = key
+            return importPublicFromJwk(publicJwkToken)
               .then((key) => {
                 publicKey = key
               })

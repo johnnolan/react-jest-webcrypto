@@ -5,10 +5,10 @@ async function exportKey (keyData) {
     })
 }
 
-export async function exportJwtPublicKey (key) {
+export async function exportjwkPublicKey (key) {
   return exportKey(key.publicKey)
 }
 
-export async function exportJwtPrivateKey (key) {
+export async function exportjwkPrivateKey (key) {
   return exportKey(key.privateKey)
 }

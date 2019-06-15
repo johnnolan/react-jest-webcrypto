@@ -1,5 +1,5 @@
 import { generateKey } from './rootRSAOAEPKey'
-import { exportJwtPublicKey, exportJwtPrivateKey } from './exportKeys'
+import { exportjwkPublicKey, exportjwkPrivateKey } from './exportKeys'
 describe('Given I try to export the generated key', () => {
   let generatedKey
   beforeAll(() => {
@@ -9,31 +9,31 @@ describe('Given I try to export the generated key', () => {
       })
   })
 
-  describe('And I export the key as a jwt token to use for encryption', () => {
-    let privateJwtToken
+  describe('And I export the key as a JWK token to use for encryption', () => {
+    let privateJwkToken
     beforeAll(() => {
-      return exportJwtPrivateKey(generatedKey)
+      return exportjwkPrivateKey(generatedKey)
         .then((key) => {
-          privateJwtToken = key
+          privateJwkToken = key
         })
     })
 
     it('it should not be null', () => {
-      expect(privateJwtToken).not.toBeNull()
+      expect(privateJwkToken).not.toBeNull()
     })
   })
 
-  describe('And I export the key as a jwt token to use for encryption', () => {
-    let publicJwtToken
+  describe('And I export the key as a JWK token to use for encryption', () => {
+    let publicJwkToken
     beforeAll(() => {
-      return exportJwtPublicKey(generatedKey)
+      return exportjwkPublicKey(generatedKey)
         .then((key) => {
-          publicJwtToken = key
+          publicJwkToken = key
         })
     })
 
     it('it should not be null', () => {
-      expect(publicJwtToken).not.toBeNull()
+      expect(publicJwkToken).not.toBeNull()
     })
   })
 })

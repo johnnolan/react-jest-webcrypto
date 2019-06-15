@@ -1,5 +1,5 @@
 import React from 'react'
-import { exportJwtPrivateKey, exportJwtPublicKey } from '../lib/exportKeys'
+import { exportjwkPrivateKey, exportjwkPublicKey } from '../lib/exportKeys'
 import RaisedButton from 'material-ui/RaisedButton'
 import Typography from '@material-ui/core/Typography'
 
@@ -13,13 +13,13 @@ class ExportKeys extends React.Component {
     event.preventDefault()
     const key = this.props.rootKey
 
-    exportJwtPublicKey(key)
-      .then((jwtPublicKey) => {
-        exportJwtPrivateKey(key)
-          .then((jwtPrivateKey) => {
+    exportjwkPublicKey(key)
+      .then((jwkPublicKey) => {
+        exportjwkPrivateKey(key)
+          .then((jwkPrivateKey) => {
             this.props.onExportKeys(
-              jwtPublicKey,
-              jwtPrivateKey
+              jwkPublicKey,
+              jwkPrivateKey
             )
           })
       })
@@ -35,12 +35,12 @@ class ExportKeys extends React.Component {
             label='Export Root RSA-OAEPKeys' />
         </div>
         <div>
-          <Typography variant='body1' gutterBottom>Exported JWT Public Key</Typography>
-          <textarea rows='6' cols='100' readOnly value={JSON.stringify(this.props.jwtPublicKey)} />
+          <Typography variant='body1' gutterBottom>Exported JWK Public Key</Typography>
+          <textarea rows='6' cols='100' readOnly value={JSON.stringify(this.props.jwkPublicKey)} />
         </div>
         <div>
-          <Typography variant='body1' gutterBottom>Exported JWT Private Key</Typography>
-          <textarea rows='6' cols='100' readOnly value={JSON.stringify(this.props.jwtPrivateKey)} />
+          <Typography variant='body1' gutterBottom>Exported JWK Private Key</Typography>
+          <textarea rows='6' cols='100' readOnly value={JSON.stringify(this.props.jwkPrivateKey)} />
         </div>
       </>
     )

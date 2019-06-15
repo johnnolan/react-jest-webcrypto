@@ -21,8 +21,8 @@ class WebCryptoEncryption extends React.Component {
     this.handleDecryptMessage = this.handleDecryptMessage.bind(this)
     this.state = {
       RootRSAOAEPKey: {},
-      jwtPublicKey: '',
-      jwtPrivateKey: '',
+      jwkPublicKey: '',
+      jwkPrivateKey: '',
       isRootRSAOAEPKeySet: false,
       importedPublicKey: '',
       importedPrivateKey: '',
@@ -39,10 +39,10 @@ class WebCryptoEncryption extends React.Component {
     })
   }
 
-  handleExportKeys (jwtPublicKey, jwtPrivateKey) {
+  handleExportKeys (jwkPublicKey, jwkPrivateKey) {
     this.setState({
-      jwtPublicKey: jwtPublicKey,
-      jwtPrivateKey: jwtPrivateKey
+      jwkPublicKey: jwkPublicKey,
+      jwkPrivateKey: jwkPrivateKey
     })
   }
 
@@ -146,8 +146,8 @@ class WebCryptoEncryption extends React.Component {
           <ExportKeys
             onExportKeys={this.handleExportKeys}
             rootKey={this.state.RootRSAOAEPKey}
-            jwtPublicKey={this.state.jwtPublicKey}
-            jwtPrivateKey={this.state.jwtPrivateKey}
+            jwkPublicKey={this.state.jwkPublicKey}
+            jwkPrivateKey={this.state.jwkPrivateKey}
             isRootKeySet={this.state.isRootRSAOAEPKeySet}
           />
         </section>
@@ -172,8 +172,8 @@ class WebCryptoEncryption extends React.Component {
 
           <ImportKeys
             onImportKeys={this.handleImportKeys}
-            jwtPublicKey={this.state.jwtPublicKey}
-            jwtPrivateKey={this.state.jwtPrivateKey}
+            jwkPublicKey={this.state.jwkPublicKey}
+            jwkPrivateKey={this.state.jwkPrivateKey}
             importedPublicKey={this.state.importedPublicKey}
             importedPrivateKey={this.state.importedPrivateKey}
           />
