@@ -1,15 +1,20 @@
 {
   "files": {
-    "main.css": "/react-jest-webcrypto/static/css/main.4a74bed5.chunk.css",
-    "main.js": "/react-jest-webcrypto/static/js/main.a506f325.chunk.js",
-    "main.js.map": "/react-jest-webcrypto/static/js/main.a506f325.chunk.js.map",
-    "runtime~main.js": "/react-jest-webcrypto/static/js/runtime~main.1ca2f55d.js",
-    "runtime~main.js.map": "/react-jest-webcrypto/static/js/runtime~main.1ca2f55d.js.map",
-    "static/js/2.c39d34b6.chunk.js": "/react-jest-webcrypto/static/js/2.c39d34b6.chunk.js",
-    "static/js/2.c39d34b6.chunk.js.map": "/react-jest-webcrypto/static/js/2.c39d34b6.chunk.js.map",
+    "main.css": "/react-jest-webcrypto/static/css/main.3eb9f71d.chunk.css",
+    "main.js": "/react-jest-webcrypto/static/js/main.ef5c030c.chunk.js",
+    "main.js.map": "/react-jest-webcrypto/static/js/main.ef5c030c.chunk.js.map",
+    "runtime-main.js": "/react-jest-webcrypto/static/js/runtime-main.f06e1b58.js",
+    "runtime-main.js.map": "/react-jest-webcrypto/static/js/runtime-main.f06e1b58.js.map",
+    "static/js/2.65dc8cc0.chunk.js": "/react-jest-webcrypto/static/js/2.65dc8cc0.chunk.js",
+    "static/js/2.65dc8cc0.chunk.js.map": "/react-jest-webcrypto/static/js/2.65dc8cc0.chunk.js.map",
     "index.html": "/react-jest-webcrypto/index.html",
-    "precache-manifest.74f097a294c01880282f734d565b9d54.js": "/react-jest-webcrypto/precache-manifest.74f097a294c01880282f734d565b9d54.js",
-    "service-worker.js": "/react-jest-webcrypto/service-worker.js",
-    "static/css/main.4a74bed5.chunk.css.map": "/react-jest-webcrypto/static/css/main.4a74bed5.chunk.css.map"
-  }
+    "static/css/main.3eb9f71d.chunk.css.map": "/react-jest-webcrypto/static/css/main.3eb9f71d.chunk.css.map",
+    "static/js/2.65dc8cc0.chunk.js.LICENSE.txt": "/react-jest-webcrypto/static/js/2.65dc8cc0.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f06e1b58.js",
+    "static/js/2.65dc8cc0.chunk.js",
+    "static/css/main.3eb9f71d.chunk.css",
+    "static/js/main.ef5c030c.chunk.js"
+  ]
 }
