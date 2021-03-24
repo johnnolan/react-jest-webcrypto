@@ -4,5 +4,5 @@ window.TextEncoder = encoding.TextEncoder
 window.TextDecoder = encoding.TextDecoder
 
 // Gives us access to a implementation of WebCrypto in Node which is available in the broswer but missing on the command line.
-var WebCrypto = require('node-webcrypto-ossl')
-window.crypto = new WebCrypto()
+import { Crypto } from "node-webcrypto-ossl";
+window.crypto = new Crypto();

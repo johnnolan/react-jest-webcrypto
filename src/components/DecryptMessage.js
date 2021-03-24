@@ -2,7 +2,6 @@ import React from 'react'
 import { decryptMessage } from '../lib/decryptMessage'
 import RaisedButton from 'material-ui/RaisedButton'
 import Typography from '@material-ui/core/Typography'
-import TextField from '@material-ui/core/TextField'
 
 class DecryptMessage extends React.Component {
   constructor (props) {
