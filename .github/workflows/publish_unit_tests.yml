@@ -1,0 +1,30 @@
+on:
+  workflow_call:
+
+jobs:
+  publish_unit_tests:
+    name: Publish Unit Tests
+    runs-on: ubuntu-latest
+    if: ${{ github.actor != 'dependabot[bot]' }}
+
+    steps:
+      - name: Download Junit Artifact
+        id: download_junit
+        uses: actions/download-artifact@v3
+        with:
+          name: junit
+          path: test-results/junit
+
+      - name: Download Clover Artifact
+        id: download_clover
+        uses: actions/download-artifact@v3
+        with:
+          name: clover
+          path: coverage/clover.xml
+
+      - name: Coverage Report
+        uses: lucassabreu/comment-coverage-clover@main
+        with:
+          file: "coverage/clover.xml"
+          min-line-coverage: 5
+          min-method-coverage: 5
