@@ -3,7 +3,7 @@ on:
 
 jobs:
   test:
-    name: Test
+    name: Build and Deploy
     runs-on: ubuntu-latest
 
     steps:
@@ -16,7 +16,10 @@ jobs:
           node-version-file: '.nvmrc'
 
       - name: Install packages
-        run: npm install
+        run: npm install --force
+
+      - name: Build
+        run: npm run build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.3.3

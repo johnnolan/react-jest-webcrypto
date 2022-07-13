@@ -16,7 +16,7 @@ jobs:
           node-version-file: '.nvmrc'
 
       - name: Install packages
-        run: npm install
+        run: npm install --force
 
       - name: Run Jest
         run: npm run test:coverage
