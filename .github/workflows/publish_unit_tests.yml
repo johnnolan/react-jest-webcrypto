@@ -8,13 +8,6 @@ jobs:
     if: ${{ github.actor != 'dependabot[bot]' }}
 
     steps:
-      - name: Download Junit Artifact
-        id: download_junit
-        uses: actions/download-artifact@v3
-        with:
-          name: junit
-          path: test-results/junit
-
       - name: Download Clover Artifact
         id: download_clover
         uses: actions/download-artifact@v3
