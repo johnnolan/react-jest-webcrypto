@@ -1,0 +1,29 @@
+on:
+  workflow_call:
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Install packages
+        run: npm install --force
+
+      - name: Run Jest
+        run: npm run test:coverage
+
+      - name: Upload Clover Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: clover
+          path: |
+            coverage/clover.xml
